@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE-edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Graduation Exhibition</title>
+</head>
+
+<style>
+    @font-face {
+    font-family: '黑體 B'; /* 自訂字體名稱 */
+    src: url('GenSekiGothic-B.ttc') format('truetype'); /* 字體文件的路徑 */
+    }
+    @font-face {
+    font-family: '黑體 H'; /* 自訂字體名稱 */
+    src: url('GenSekiGothic-H.ttc') format('truetype'); /* 字體文件的路徑 */
+    }
+    @font-face {
+    font-family: '黑體 M'; /* 自訂字體名稱 */
+    src: url('GenSekiGothic-M.ttc') format('truetype'); /* 字體文件的路徑 */
+    }
+    @font-face {
+    font-family: '黑體 R'; /* 自訂字體名稱 */
+    src: url('GenSekiGothic-R.ttc') format('truetype'); /* 字體文件的路徑 */
+    }
+    @font-face {
+    font-family: '黑體 L'; /* 自訂字體名稱 */
+    src: url('GenSekiGothic-L.ttc') format('truetype'); /* 字體文件的路徑 */
+    }
+    @font-face {
+    font-family: 'Zen Kaku Gothic New Black'; /* 自訂字體名稱 */
+    src: url('ZenKakuGothicNew-Black.ttf') format('truetype'); /* 字體文件的路徑 */
+    }
+    @font-face {
+    font-family: 'Zen Kaku Gothic New Bold'; /* 自訂字體名稱 */
+    src: url('ZenKakuGothicNew-Bold.ttf') format('truetype'); /* 字體文件的路徑 */
+    }
+    @font-face {
+    font-family: 'Zen Kaku Gothic New Medium'; /* 自訂字體名稱 */
+    src: url('ZenKakuGothicNew-Medium.ttf') format('truetype'); /* 字體文件的路徑 */
+    }
+    @font-face {
+    font-family: 'Zen Kaku Gothic New Regular'; /* 自訂字體名稱 */
+    src: url('ZenKakuGothicNew-Regular.ttf') format('truetype'); /* 字體文件的路徑 */
+    }
+    @font-face {
+    font-family: 'Zen Kaku Gothic New Light'; /* 自訂字體名稱 */
+    src: url('ZenKakuGothicNew-Light.ttf') format('truetype'); /* 字體文件的路徑 */
+    }
+    body, html {
+        height: 100%;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+        display: block;
+        justify-content: center;
+        align-content: center;
+        background-image: url('https://i.postimg.cc/285ZWHxB/0510.png');
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-position: center;
+        font-family: 'Zen Kaku Gothic New Bold','黑體 H', sans-serif;
+    }
+    .pic {
+        height: 100%;
+    }
+
+    img {
+        height: 100%;
+        display: block;
+        object-fit: none;
+    }   
+    
+    .text_name {
+        position: absolute;
+        background-color: transparent;
+        font-size: 28px;
+        width: 330px;
+        height: 70px;
+        font-weight: bolder;
+        align-items: center;
+        text-align: center;
+        letter-spacing: 6px;
+        color: rgb(255, 255, 255);
+    }
+    .text_where {
+        position: absolute;
+        background-color: transparent;
+        font-size: 35px;
+        width: 370px;
+        height: 70px;
+        font-weight: 1000;
+        color: #6B87AF;
+        text-align: center;
+        letter-spacing: 10px;
+        line-height: 50px;
+        vertical-align: baseline;
+    }
+    
+</style>
+
+<body>
+    <!--圖片-->
+    <div class="pic">
+        <div style="display: flex;justify-content: center;position: relative;">
+            <div class="text_name" id="name_text"></div>
+            <div class="text_where" id="where_text"></div>
+        </div>
+    </div>
+    
+
+    <!--可以放文字-->
+    
+
+    <script>
+        window.onload = function() {
+            Redirect();
+        };
+        // 取得上一頁存在sessionstorage的兩個值
+        function Redirect() {
+            const name = sessionStorage.getItem('name');
+            const where = sessionStorage.getItem('where');
+            if (where) { // 99
+                const where_text = document.getElementById('where_text');
+                where_text.textContent = `${where}`;
+                where_text.style.left = `calc(50% - 185px)`; 
+
+                const windowHeight = window.innerHeight;
+                // 取得 name_text 元素的高度
+                const whereTextHeight = where_text.offsetHeight;
+                // 計算垂直置中的位置
+                const topPosition = (windowHeight - whereTextHeight) / 2;
+                where_text.style.top = `${topPosition - 10}px`;
+                //adjustHeight(where_text); 
+            }
+            if (name) { // 00
+                const name_text = document.getElementById('name_text');
+                name_text.textContent = `${name}`;
+                const width = name_text.clientWidth;
+
+                name_text.style.left = `calc(50% - 90px)`; 
+                const pageHeight = window.innerHeight;
+                name_text.style.top = `${pageHeight - 60}px`;
+                //adjustHeight(name_text);
+            }
+        }
+        function adjustHeight(element) {
+            // 获取元素的高度
+            const height = element.offsetHeight;
+            // 获取元素的滚动高度
+            const scrollHeight = element.scrollHeight;
+            // 如果文本内容超出元素高度，则增加元素高度
+            if (scrollHeight > height) {
+                element.style.height = `${scrollHeight}px`;
+            }
+        }
+
+        // 按 enter 回到上一頁
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Enter") {
+                window.location.href = './';
+            }
+        });
+    </script>
+
+</body>
+</html>
