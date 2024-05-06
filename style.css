@@ -6,7 +6,10 @@
   font-family: '黑體 H'; /* 自訂字體名稱 */
   src: url('GenSekiGothic-H.ttc') format('truetype'); /* 字體文件的路徑 */
 }
-
+@font-face {
+  font-family: '黑體 M'; /* 自訂字體名稱 */
+  src: url('GenSekiGothic-M.ttc') format('truetype'); /* 字體文件的路徑 */
+}
 @font-face {
   font-family: 'Zen Kaku Gothic New Black'; /* 自訂字體名稱 */
   src: url('ZenKakuGothicNew-Black.ttf') format('truetype'); /* 字體文件的路徑 */
@@ -15,7 +18,10 @@
   font-family: 'Zen Kaku Gothic New Bold'; /* 自訂字體名稱 */
   src: url('ZenKakuGothicNew-Bold.ttf') format('truetype'); /* 字體文件的路徑 */
 }
-
+@font-face {
+  font-family: 'Zen Kaku Gothic New Medium'; /* 自訂字體名稱 */
+  src: url('ZenKakuGothicNew-Medium.ttf') format('truetype'); /* 字體文件的路徑 */
+}
 
 *{
     padding:0;
@@ -57,7 +63,6 @@ h2{
     color:#404040;
     font-size:35px;
     font-family: "Zen Kaku Gothic New Bold",'黑體 H', sans-serif;
-    font-weight: bolder;
 }
 
 input{
@@ -75,7 +80,7 @@ input:focus{
 
 button{
     background-color: #737373;
-    color:antiquewhite;
+    color:white;
     font-size:15px;
     font-family: 'Zen Kaku Gothic New Bold', '黑體 H',sans-serif;
     border:1px solid #404040;
@@ -89,7 +94,7 @@ button{
 input::placeholder{
     color:#414141;
     font-size:15px;
-    font-family: 'Zen Kaku Gothic New Bold','黑體 H', sans-serif;
+    font-family: 'Zen Kaku Gothic New Medium','黑體 M', sans-serif;
    
 }
 
@@ -98,6 +103,7 @@ input::placeholder{
 }
 
 h2{
+  font-family: 'Zen Kaku Gothic New Medium','黑體 M', sans-serif;
   font-size: 30px;
 }
 
